@@ -1,0 +1,3 @@
+local_settings.py
+Pipfile.lock
+db.sqlite3
