@@ -4,8 +4,10 @@ from .models import Post
 
 class PostSerializer(serializers.ModelSerializer):
     
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+    
     class Meta:
         model = Post
-        fields = ['title', 'description', 'img']
+        fields = ['user', 'title', 'description', 'img']
     
 
