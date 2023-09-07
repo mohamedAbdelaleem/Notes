@@ -1,3 +1,4 @@
+from datetime import datetime
 from rest_framework import serializers
 from .models import Post
 
@@ -10,7 +11,7 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = ['id', 'user', 'title', 'description', 'img', 'date']
         extra_kwargs = {
-            'id': {'read_only': True}
+            'date': {'read_only': True},
         }
 
 

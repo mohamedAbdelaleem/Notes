@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
-
+from django.utils import timezone
 
 
 class Post(models.Model):
@@ -9,7 +9,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     img = models.ImageField(upload_to="uploads/%Y/%m/%d/", blank=True)
-    date = models.DateField(auto_now_add=True)
+    date = models.DateTimeField(default=timezone.now)
     
     def __str__(self) -> str:
         return self.title

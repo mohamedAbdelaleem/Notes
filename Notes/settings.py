@@ -160,3 +160,8 @@ REST_FRAMEWORK = {
 }
 
 
+# Djoser
+
+DJOSER = {
+    'SET_PASSWORD_RETYPE': True,
+}
