@@ -26,8 +26,9 @@ SECRET_KEY = local_settings.SECRET_KEY
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
 
+ALLOWED_HOSTS = []
+FRONT_END_DOMAIN = 'front-end'
 
 # Application definition
 
@@ -164,4 +165,20 @@ REST_FRAMEWORK = {
 
 DJOSER = {
     'SET_PASSWORD_RETYPE': True,
+    'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND': True,
+    'PASSWORD_RESET_CONFIRM_URL': 'password-reset/{uid}/{token}',
+    'EMAIL': {
+        'password_reset': 'accounts.email.CustomPasswordResetEmail',
+    }
 }
+
+
+# Email settings
+
+EMAIL_HOST = 'smtp-mail.outlook.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = local_settings.email
+EMAIL_HOST_PASSWORD = local_settings.email_password
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
